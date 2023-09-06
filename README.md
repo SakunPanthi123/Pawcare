@@ -1,16 +1,4 @@
-# pawcare
+**PawCare**
 
-A new Flutter project.
+An app designed for pet lovers to take care of their pets be it a cat, a dog or even an ox! PawCare facilitates shopping for pet food from varous retailers to keeping reminders of vaccination dates as well as taking appointment from your local veterinarian to get your pet's regular trimester full checkup. Designed with ease of use in mind, it uses flutter's robust UI desgin principles for smooth interaction and firebase's cloudfirestore database for blazing speed. Login with your email and password and get started now!
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.

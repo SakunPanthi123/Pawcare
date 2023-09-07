@@ -2,6 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:pawcare/api/apis.dart';
+import 'package:pawcare/models/item_model.dart';
+import 'package:pawcare/providers/product_provider.dart';
+import 'package:provider/provider.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({super.key});
@@ -15,6 +18,7 @@ class _SignInPageState extends State<SignInPage> {
   String email = '';
   String password = '';
   bool loggedIn = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

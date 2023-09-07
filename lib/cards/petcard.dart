@@ -1,19 +1,14 @@
 // ignore_for_file: prefer_const_constructors, sized_box_for_whitespace, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:pawcare/models/item_model.dart';
+import 'package:pawcare/providers/cart_item_provider.dart';
+import 'package:provider/provider.dart';
 
 class PetCard extends StatefulWidget {
-  final String title;
-  final String price;
-  final String description;
-  final String imgURL;
+  final Product product;
 
-  const PetCard(
-      {super.key,
-      required this.title,
-      required this.price,
-      required this.description,
-      required this.imgURL});
+  const PetCard(this.product, {super.key});
 
   @override
   State<PetCard> createState() => _PetCardState();
@@ -22,6 +17,7 @@ class PetCard extends StatefulWidget {
 class _PetCardState extends State<PetCard> {
   @override
   Widget build(BuildContext context) {
+    CartItemProvider cartProvider = Provider.of<CartItemProvider>(context);
     return Container(
       height: 335,
       width: 250,
@@ -38,10 +34,10 @@ class _PetCardState extends State<PetCard> {
                 topLeft: Radius.circular(12),
                 topRight: Radius.circular(12),
               ),
-              image: DecorationImage(
-                fit: BoxFit.cover,
-                image: NetworkImage(widget.imgURL),
-              ),
+              // image: DecorationImage(
+              //   fit: BoxFit.cover,
+              //   image: NetworkImage(widget.product.imgUrl),
+              // ),
             ),
           ),
           SizedBox(
@@ -60,7 +56,7 @@ class _PetCardState extends State<PetCard> {
                     child: Padding(
                       padding: const EdgeInsets.only(left: 10),
                       child: Text(
-                        widget.title,
+                        widget.product.title,
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Colors.red,
@@ -75,7 +71,7 @@ class _PetCardState extends State<PetCard> {
                   Row(
                     children: [
                       Text(
-                        'Rs ${widget.price}',
+                        'Rs ${widget.product.price}',
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Colors.red,
@@ -99,9 +95,9 @@ class _PetCardState extends State<PetCard> {
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(10, 5, 10, 5),
                 child: Text(
-                  widget.description.length > 100
-                      ? widget.description.substring(0, 100)
-                      : widget.description,
+                  widget.product.description.length > 100
+                      ? widget.product.description.substring(0, 100)
+                      : widget.product.description,
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     color: Colors.red,
@@ -120,7 +116,9 @@ class _PetCardState extends State<PetCard> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      cartProvider.addToCart(widget.product.id);
+                    },
                     style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),

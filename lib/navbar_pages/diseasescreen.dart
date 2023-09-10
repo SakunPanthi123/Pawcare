@@ -14,10 +14,16 @@ class _VaccineScreenState extends State<VaccineScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Vacccines for your Pet'),
+      ),
       body: SingleChildScrollView(
         child: Center(
           child: Column(
             children: [
+              SizedBox(
+                height: 10,
+              ),
               Text(
                 'For Dogs',
                 style: TextStyle(

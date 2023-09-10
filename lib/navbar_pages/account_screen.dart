@@ -1,7 +1,8 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, use_build_context_synchronously
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:pawcare/login/signinpage.dart';
 import 'package:pawcare/navbar_pages/appointment_page.dart';
 import 'package:pawcare/navbar_pages/cartpage.dart';
 import 'package:pawcare/providers/cart_item_provider.dart';
@@ -45,6 +46,8 @@ class _AccountScreenState extends State<AccountScreen> {
               onPressed: () async {
                 await FirebaseAuth.instance.signOut();
                 cartProvider.reinitialize([]);
+                Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    builder: (BuildContext context) => SignInPage()));
               },
               child: Text(
                 'Logout',

@@ -24,7 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
     }
     return Scaffold(
       appBar: AppBar(
-        title: Text('Shopping Page'),
+        title: Text('Pet Shop'),
       ),
       body: Padding(
         padding: const EdgeInsets.fromLTRB(12, 12, 0, 0),

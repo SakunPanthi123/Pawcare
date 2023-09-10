@@ -57,8 +57,8 @@ class _NavBarScreenState extends State<NavBarScreen> {
         },
         items: [
           BottomNavigationBarItem(
-            label: 'Pet Care',
-            icon: Icon(Icons.local_hospital),
+            label: 'Pet Shop',
+            icon: Icon(Icons.shopify),
           ),
           BottomNavigationBarItem(
             label: 'Schedules',

@@ -14,7 +14,7 @@ class _SignInPageState extends State<SignInPage> {
   final _formKey = GlobalKey<FormState>();
   String email = '';
   String password = '';
-  bool loggedIn = false;
+  bool loggedIn = true;
 
   @override
   Widget build(BuildContext context) {
@@ -84,10 +84,10 @@ class _SignInPageState extends State<SignInPage> {
             InkWell(
                 onTap: () {
                   setState(() {
-                    loggedIn = true;
+                    loggedIn = loggedIn == true ? false : true;
                   });
                 },
-                child: Text('Sign in')),
+                child: loggedIn == true ? Text('Sign Up') : Text('Sign In')),
           ],
         ),
       ),

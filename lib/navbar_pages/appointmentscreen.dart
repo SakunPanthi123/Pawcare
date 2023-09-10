@@ -60,8 +60,13 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                             SizedBox(
                               height: 10,
                             ),
-                            TextField(
-                              controller: aController,
+                            Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 40,
+                              ),
+                              child: TextField(
+                                controller: aController,
+                              ),
                             ),
                             SizedBox(
                               height: 10,

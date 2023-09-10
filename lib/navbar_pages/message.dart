@@ -20,7 +20,7 @@ class _MessageScreenState extends State<MessageScreen> {
         title: Text('Message your Veterenarian'),
       ),
       body: SizedBox(
-        height: 600,
+        height: MediaQuery.of(context).size.height,
         child: Column(
           children: [
             Expanded(
@@ -54,7 +54,7 @@ class _MessageScreenState extends State<MessageScreen> {
                                     child: Container(
                                       alignment: Alignment.centerRight,
                                       margin: EdgeInsets.only(
-                                          right: 10.0, bottom: 10.0),
+                                          left: 10, right: 10.0, bottom: 10.0),
                                       child: Container(
                                         padding: EdgeInsets.all(10.0),
                                         decoration: BoxDecoration(
@@ -85,10 +85,29 @@ class _MessageScreenState extends State<MessageScreen> {
             Row(
               children: [
                 Expanded(
-                  child: TextField(
-                    controller: aController,
-                    decoration: InputDecoration(
-                      hintText: 'Write your Message...',
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 8, right: 8),
+                    child: Container(
+                      height: 40,
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.red,
+                        ),
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(12),
+                        ),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 4),
+                        child: TextField(
+                          controller: aController,
+                          decoration: InputDecoration(
+                            enabledBorder: InputBorder.none,
+                            focusedBorder: InputBorder.none,
+                            hintText: 'Write your Message...',
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                 ),

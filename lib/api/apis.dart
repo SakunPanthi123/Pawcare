@@ -4,12 +4,19 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:pawcare/models/item_model.dart';
+import 'package:pawcare/navbarscreen.dart';
 
 class APIs {
   static signUp(String email, String password, BuildContext context) async {
     try {
-      await FirebaseAuth.instance
+      UserCredential userCredential = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(email: email, password: password);
+      await FirebaseFirestore.instance
+          .collection('users')
+          .doc(userCredential.user!.uid)
+          .set({});
+      Navigator.pushReplacement(context,
+          MaterialPageRoute(builder: (BuildContext context) => NavBarScreen()));
     } catch (e) {
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text(e.toString())));
@@ -20,6 +27,8 @@ class APIs {
     try {
       await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
+      Navigator.pushReplacement(context,
+          MaterialPageRoute(builder: (BuildContext context) => NavBarScreen()));
     } catch (e) {
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text(e.toString())));

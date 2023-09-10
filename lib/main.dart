@@ -1,13 +1,11 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:pawcare/api/apis.dart';
 import 'package:pawcare/firebase_options.dart';
+import 'package:pawcare/login/splashscreen.dart';
 import 'package:pawcare/models/item_model.dart';
-import 'package:pawcare/navbarscreen.dart';
-import 'package:pawcare/login/signinpage.dart';
 import 'package:pawcare/providers/cart_item_provider.dart';
 import 'package:pawcare/providers/product_provider.dart';
 import 'package:provider/provider.dart';
@@ -56,15 +54,8 @@ class _MyAppState extends State<MyApp> {
     ProductProvider prodProvider = Provider.of<ProductProvider>(context);
     prodProvider.reinitialize(prods);
     return MaterialApp(
-      home: StreamBuilder(
-          stream: FirebaseAuth.instance.authStateChanges(),
-          builder: (context, snapshot) {
-            if (snapshot.hasData) {
-              return NavBarScreen();
-            } else {
-              return SignInPage();
-            }
-          }),
+      debugShowCheckedModeBanner: false,
+      home: SplashScreen(),
       theme: ThemeData(
           textTheme: TextTheme(
             titleMedium: TextStyle(

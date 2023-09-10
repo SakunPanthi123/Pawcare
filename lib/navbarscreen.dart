@@ -5,11 +5,10 @@ import 'package:pawcare/api/apis.dart';
 import 'package:pawcare/models/item_model.dart';
 import 'package:pawcare/navbar_pages/account_screen.dart';
 import 'package:pawcare/navbar_pages/appointmentscreen.dart';
-import 'package:pawcare/navbar_pages/dietscreen.dart';
+import 'package:pawcare/navbar_pages/diseasescreen.dart';
 import 'package:pawcare/navbar_pages/homescreen.dart';
 import 'package:pawcare/navbar_pages/message.dart';
 import 'package:pawcare/providers/cart_item_provider.dart';
-import 'package:pawcare/providers/product_provider.dart';
 import 'package:provider/provider.dart';
 
 class NavBarScreen extends StatefulWidget {
@@ -27,7 +26,7 @@ class _NavBarScreenState extends State<NavBarScreen> {
     HomeScreen(),
     AppointmentScreen(),
     MessageScreen(),
-    DietScreen(),
+    VaccineScreen(),
     AccountScreen(),
   ];
 
@@ -62,7 +61,7 @@ class _NavBarScreenState extends State<NavBarScreen> {
             icon: Icon(Icons.local_hospital),
           ),
           BottomNavigationBarItem(
-            label: 'Appointment',
+            label: 'Schedules',
             icon: Icon(Icons.pending_actions),
           ),
           BottomNavigationBarItem(
@@ -70,8 +69,8 @@ class _NavBarScreenState extends State<NavBarScreen> {
             icon: Icon(Icons.message),
           ),
           BottomNavigationBarItem(
-            label: 'Diet',
-            icon: Icon(Icons.dining_outlined),
+            label: 'Vaccines',
+            icon: Icon(Icons.vaccines),
           ),
           BottomNavigationBarItem(
             label: 'Account',

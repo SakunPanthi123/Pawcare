@@ -2,9 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:pawcare/api/apis.dart';
-import 'package:pawcare/models/item_model.dart';
-import 'package:pawcare/providers/product_provider.dart';
-import 'package:provider/provider.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({super.key});
@@ -23,7 +20,7 @@ class _SignInPageState extends State<SignInPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.fromLTRB(18, 40, 18, 18),
+        padding: const EdgeInsets.fromLTRB(18, 300, 18, 18),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

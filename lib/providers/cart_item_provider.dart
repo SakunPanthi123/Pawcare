@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:pawcare/models/item_model.dart';
 
 class CartItemProvider extends ChangeNotifier {
   List<String> cart = [];
@@ -22,7 +21,7 @@ class CartItemProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> removeToCart(String id) async {
+  Future<void> removefromCart(String id) async {
     cart.remove(id);
     await FirebaseFirestore.instance
         .collection('users')

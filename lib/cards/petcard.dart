@@ -34,10 +34,12 @@ class _PetCardState extends State<PetCard> {
                 topLeft: Radius.circular(12),
                 topRight: Radius.circular(12),
               ),
-              // image: DecorationImage(
-              //   fit: BoxFit.cover,
-              //   image: NetworkImage(widget.product.imgUrl),
-              // ),
+              image: DecorationImage(
+                fit: BoxFit.cover,
+                image: NetworkImage(
+                  widget.product.imgUrl.toString(),
+                ),
+              ),
             ),
           ),
           SizedBox(

@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:pawcare/cards/petcard.dart';
+import 'package:pawcare/navbar_pages/details_page.dart';
 import 'package:pawcare/providers/product_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -52,9 +53,19 @@ class _HomeScreenState extends State<HomeScreen> {
                       itemBuilder: (BuildContext context, value) {
                         return productProvider.products[value].category ==
                                 categories[index]
-                            ? Padding(
-                                padding: const EdgeInsets.only(right: 15),
-                                child: PetCard(productProvider.products[value]),
+                            ? InkWell(
+                                onTap: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (BuildContext context) =>
+                                          DetailsPage(
+                                              product: productProvider
+                                                  .products[value])));
+                                },
+                                child: Padding(
+                                  padding: const EdgeInsets.only(right: 15),
+                                  child:
+                                      PetCard(productProvider.products[value]),
+                                ),
                               )
                             : Row();
                       },

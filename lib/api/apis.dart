@@ -7,14 +7,18 @@ import 'package:pawcare/models/item_model.dart';
 import 'package:pawcare/navbarscreen.dart';
 
 class APIs {
-  static signUp(String email, String password, BuildContext context) async {
+  static signUp(String email, String password, String name, String age,
+      BuildContext context) async {
     try {
       UserCredential userCredential = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(email: email, password: password);
       await FirebaseFirestore.instance
           .collection('users')
           .doc(userCredential.user!.uid)
-          .set({});
+          .set({
+        'name': name,
+        'age': age,
+      });
       Navigator.pushReplacement(context,
           MaterialPageRoute(builder: (BuildContext context) => NavBarScreen()));
     } catch (e) {

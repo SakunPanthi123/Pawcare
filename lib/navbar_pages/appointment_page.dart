@@ -3,10 +3,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:pawcare/cards/pet_cart_card.dart';
-import 'package:pawcare/providers/cart_item_provider.dart';
-import 'package:pawcare/providers/product_provider.dart';
-import 'package:provider/provider.dart';
 
 class AppointmentPage extends StatefulWidget {
   const AppointmentPage({super.key});
